@@ -7,15 +7,17 @@
  **/
 
 //build horiz bar chart...
-var data = [4, 8, 15, 16, 23, 42];
+//var data = [4, 8, 15, 16, 23, 42];
+var data = [2.99, 3.54, 552, 3.3, 16.5]; //2016 data
+var data2 = [2.6, 3.24, 637, 4.1, 15.5]; //2013 data
 var chart = d3.select(".chart");
 var bar = chart.selectAll("div");
 var barUpdate = bar.data(data);
 var barEnter = barUpdate.enter().append("div");
 
 
-/*
-   USAGE: reload index.html before executing each from the console...
+
+//   USAGE: reload index.html before executing each from the console...
 
 //instant transition:
 barEnter.style("width", function(d) {
@@ -29,6 +31,6 @@ barEnter.transition().duration(5000).style("width", function(d) {
 barEnter.transition().duration( function(d){ return d*1000; } )
   .style("width", function(d) {
     return d * 10 + "px"; });
- */
+
 
 barEnter.text(function(d) { return d; });
