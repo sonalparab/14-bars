@@ -19,12 +19,12 @@ var transition=function(e){
     if(toggle==1){
 	barUpdate = bar.data(data2);
 	barEnter = barUpdate.enter().append("div");
-	heading.innerHTML="Program Spending in 2013";
+	heading.innerHTML="Program Spending in 2013 (in billions)";
     }
     else{
 	barUpdate = bar.data(data);
 	barEnter = barUpdate.enter().append("div");
-	heading.innerHTML="Program Spending in 2016";
+	heading.innerHTML="Program Spending in 2016 (in billions)";
     }
     barEnter.transition().duration(2000).style("width", function(d) {
 	return d + "px"; });
