@@ -7,30 +7,29 @@
  **/
 
 //build horiz bar chart...
-//var data = [4, 8, 15, 16, 23, 42];
-var data = [2.99, 3.54, 552, 3.3, 16.5]; //2016 data
-var data2 = [2.6, 3.24, 637, 4.1, 15.5]; //2013 data
+//DATA (IN BILLIONS): National Defense, Veterans Benefits and Services, Transporation, Administration of Justice, Natural Resources and Environment
+var data = [541,160,82.7,57.7,38.1]; //2016 data
+var data2 = [594, 130, 86,49.3,35.8]; //2013 data
 var chart = d3.select(".chart");
 var bar = chart.selectAll("div");
 var barUpdate = bar.data(data);
 var barEnter = barUpdate.enter().append("div");
 
 
-
 //   USAGE: reload index.html before executing each from the console...
 
 //instant transition:
 barEnter.style("width", function(d) {
-  return d * 10 + "px"; });
+  return d + "px"; });
 
 //5s transition:
-barEnter.transition().duration(5000).style("width", function(d) {
-  return d * 10 + "px"; });
+//barEnter.transition().duration(5000).style("width", function(d) {
+  //return d*100 + "px"; });
 
 //trans time prop to bar width
-barEnter.transition().duration( function(d){ return d*1000; } )
-  .style("width", function(d) {
-    return d * 10 + "px"; });
+//barEnter.transition().duration( function(d){ return d*1000; } )
+  //.style("width", function(d) {
+    //return d*100 + "px"; });
 
 
 barEnter.text(function(d) { return d; });

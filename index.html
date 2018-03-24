@@ -1,28 +1,29 @@
 <!DOCTYPE html>
-<!--
-     D3 demo: 
-     transitions
-   -->
-<!--
-   -->
-<!--
-     Clyde "Thluffy" Sinclair
-     SoftDev2 pd0
-     2099-12-31    
-   -->
-
 <html>
   <head>
 	  <meta charset="UTF-8"/>
-    <title>Demo: D3 Transitions</title>
+    <title>Program Spending</title>
     <style>
       .chart div {
-        font: 10px sans-serif;
-        background-color: steelblue;
-        text-align: right;
-        padding: 3px;
-        margin: 1px;
-        color: white;
+      font: 20px sans-serif;
+      background-color: steelblue;
+      text-align: center;
+      color: white;
+      margin: 2px;
+      padding: 2px;
+      top:5px;
+      left:600px;
+      position:relative;
+      height:22px;
+      }
+      .programs{
+      position:absolute;
+      left:200px;
+      top:60px;
+      font-size: 25px;
+      }
+      .center{
+       display: block; margin-left: auto; margin-right: auto; width: 50%;
       }
     </style>
 
@@ -31,8 +32,15 @@
   </head>
   
   <body>
+    <h1 class="center">Program Spending in 2016</h1>
+    <p class="programs">National Defense<br>
+      Veterans Benefits and Services<br>
+      Transporation<br>
+      Administration of Justice<br>
+      Natural Resources and Environment</p>
     <div class="chart">
-    </div>
+    </div><br><br><br>
+    <button id="toggle" class="center" style="width:90px;font-size:20px">Toggle</button>
   </body>
 
   <script src="index.js"></script>
