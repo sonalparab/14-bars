@@ -1,12 +1,3 @@
-/**
-   D3 demo: transition basics
-
-   Clyde "Thluffy" Sinclair
-   SoftDev2 pd0
-   2099-12-31
- **/
-
-//build horiz bar chart...
 //DATA (IN BILLIONS): National Defense, Veterans Benefits and Services, Transporation, Administration of Justice, Natural Resources and Environment
 var data = [541,160,82.7,57.7,38.1]; //2016 data
 var data2 = [594, 130, 86,49.3,35.8]; //2013 data
@@ -14,22 +5,31 @@ var chart = d3.select(".chart");
 var bar = chart.selectAll("div");
 var barUpdate = bar.data(data);
 var barEnter = barUpdate.enter().append("div");
+barEnter.text(function(d) { return d; });
 
-
-//   USAGE: reload index.html before executing each from the console...
+var toggle=1;
+var b=document.getElementById("toggle");
 
 //instant transition:
 barEnter.style("width", function(d) {
   return d + "px"; });
 
-//5s transition:
-//barEnter.transition().duration(5000).style("width", function(d) {
-  //return d*100 + "px"; });
+var transition=function(e){
+    chart.selectAll("div").remove()
+    if(toggle==1){
+	barUpdate = bar.data(data2);
+	barEnter = barUpdate.enter().append("div");
+	heading.innerHTML="Program Spending in 2013";
+    }
+    else{
+	barUpdate = bar.data(data);
+	barEnter = barUpdate.enter().append("div");
+	heading.innerHTML="Program Spending in 2016";
+    }
+    barEnter.transition().duration(2000).style("width", function(d) {
+	return d + "px"; });
+    barEnter.text(function(d) { return d; });
+    toggle*=-1;
+};
 
-//trans time prop to bar width
-//barEnter.transition().duration( function(d){ return d*1000; } )
-  //.style("width", function(d) {
-    //return d*100 + "px"; });
-
-
-barEnter.text(function(d) { return d; });
+b.addEventListener("click", transition);
